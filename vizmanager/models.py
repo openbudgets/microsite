@@ -111,7 +111,8 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     municipality = models.ForeignKey(Municipality,
-                                     verbose_name=_('Municipality'))
+                                     verbose_name=_('Municipality'),
+                                     on_delete=models.CASCADE,)
 
     def __str__(self):
         return '{}'.format(self.user.username)
@@ -120,9 +121,11 @@ class Profile(models.Model):
 class Microsite(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     municipality = models.ForeignKey(Municipality,
-                                     verbose_name=_('Municipality'))
+                                     verbose_name=_('Municipality'),
+                                     on_delete=models.CASCADE,)
     selected_theme = models.ForeignKey('Theme', blank=True, null=True,
-                                       related_name='mock_microsite')
+                                       related_name='mock_microsite',
+                                       on_delete=models.CASCADE,)
     language = models.CharField(max_length=2, default='en',
                                 choices=(('en', 'en'), ('de', 'de'),
                                          ('es', 'es'),
@@ -191,7 +194,8 @@ class Forum(models.Model):
 class Theme(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     microsite = models.ForeignKey(Microsite, verbose_name=_('Microsite'),
-                                  null=True)
+                                  null=True,
+                                  on_delete=models.CASCADE,)
     brand_color = ColorField(verbose_name=_('Brand Color'),
                                    default='#FFFFFF')
     sidebar_color = ColorField(verbose_name=_('Sidebar Color'),
@@ -277,7 +281,8 @@ class Hierarchy(models.Model):
 class Dataset(ModelDiffMixin, models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
     microsite = models.ForeignKey(Microsite, verbose_name=_('Microsite'),
-                                  null=True, blank=True)
+                                  null=True, blank=True,
+                                  on_delete=models.CASCADE,)
     code = models.CharField(max_length=200, verbose_name=_('Code'))
     viz_type = models.CharField(max_length=200,
                                 choices=(
