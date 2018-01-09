@@ -177,7 +177,7 @@ class Microsite(models.Model):
 
 
 class Forum(models.Model):
-    microsite = models.OneToOneField(Microsite)
+    microsite = models.OneToOneField(Microsite, on_delete=models.CASCADE,)
 
     # def disqus_url(self):
     #    raise NotImplementedError
