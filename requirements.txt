@@ -1,4 +1,4 @@
-django<=2.*
+django<2.*
 django-autocomplete-light
 django-colorfield
 django-extensions
