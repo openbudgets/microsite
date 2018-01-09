@@ -64,9 +64,9 @@ class Indicator(models.Model):
 
 class KPI(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Name'))
-    organization = models.ForeignKey(Organization)
-    year = models.ForeignKey(Year)
-    phase = models.ForeignKey(Phase)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE,)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE,)
+    phase = models.ForeignKey(Phase, on_delete=models.CASCADE,)
 
     def __str__(self):
         return '{}'.format(self.name)
