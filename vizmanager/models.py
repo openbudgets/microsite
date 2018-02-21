@@ -80,7 +80,7 @@ class KPI(models.Model):
         Build URL to get to this dataset in OS Viewer
         :return: URL string
         """
-        url = '{kpi_host}/embed/?'.format(
+        url = '{kpi_host}/embed?'.format(
             kpi_host=settings.KPI_HOST,
 
         )
