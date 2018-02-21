@@ -136,8 +136,10 @@ try:  # using Docker
     OS_VIEWER_HOST = os.environ['OS_VIEWER_HOST']
     OS_API = os.environ['OS_API']
     KPI_API = os.environ['KPI_API']
+    KPI_HOST = os.environ['KPI_HOST']
 except KeyError:  # not using Docker
     OS_VIEWER_THEMES_FOLDER = 'os_viewer_themes'
     OS_VIEWER_HOST = 'http://apps.openbudgets.eu/viewer/'
     OS_API = 'http://apps.openbudgets.eu/api/3'
     KPI_API = 'http://apps.openbudgets.eu/kpi/api/v1'
+    KPI_HOST = "http://apps.openbudgets.eu/kpi"

@@ -81,11 +81,10 @@ class KPI(models.Model):
         :return: URL string
         """
         url = '{kpi_host}/embed/?'.format(
-            kpi_host="http://localhost:5000",
+            kpi_host=settings.KPI_HOST,
 
         )
         params = {
-            'lang': "en",
             'phase': self.phase.url,
             'year': self.year.url,
             'organization': self.organization.url
